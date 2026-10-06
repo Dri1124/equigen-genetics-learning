@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EquiGen Genetics Learning</title><style>
+body{font-family:Arial,sans-serif;margin:0;background:#fbf9fd;color:#292330;line-height:1.6}header{background:linear-gradient(135deg,#4d2875,#8255aa);color:#fff;padding:55px 20px;text-align:center}h1{font-family:Georgia,serif;font-size:clamp(2.5rem,6vw,4.5rem);margin:.15em}h2,h3{font-family:Georgia,serif;color:#60378a}.wrap{max-width:1050px;margin:auto}section{padding:45px 20px}.choices,.two,.terms{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card,.stage{background:#fff;border:1px solid #ded2e7;border-radius:18px;padding:24px;margin:18px 0;box-shadow:0 6px 22px #4d28750c}.choice{cursor:pointer}.choice:hover{border-color:#8255aa}.icon{font-size:3rem}.btn{border:0;border-radius:30px;padding:11px 17px;background:#60378a;color:white;font-weight:bold;cursor:pointer}.back{background:#e9def2;color:#60378a}.hidden{display:none}.visual{background:#f5f0f8;border-radius:14px;padding:25px;min-height:220px;display:flex;align-items:center;justify-content:center;text-align:center}.plans{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;width:100%}.sheet{background:#fff;border:2px solid #79658a;padding:12px 5px;min-height:125px}.sheet b{display:block;color:#60378a}.floor{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;width:100%;max-width:600px}.room{border:2px solid #6c6172;padding:30px 8px;background:#fff;font-weight:bold}.spec{font-family:monospace;background:#fff;border:2px solid #554a5c;padding:20px;text-align:left;max-width:520px;width:100%}.line{border-bottom:1px solid #ddd;padding:7px}.change{background:#fff0d5;font-weight:bold}.rooms{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;width:100%}.r{background:#fff;border:1px solid #d8c9e3;border-radius:10px;padding:12px}.recipes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}.recipe{background:#fffdf8;border:1px solid #ddc9aa;border-radius:12px;padding:15px}.term{background:#fff;border-left:5px solid #8255aa;padding:16px;border-radius:9px}.note{background:#fff8e9;border-left:5px solid #c39a55;padding:17px;margin:18px 0;border-radius:8px}.tag{font-size:.78rem;font-weight:bold;color:#60378a;background:#e9def2;border-radius:20px;padding:5px 9px}.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}footer{background:#2e2039;color:#fff;padding:30px 20px}
+.inheritVisual{width:100%;padding:8px}.inheritFlow{display:grid;grid-template-columns:1fr 70px 1fr 70px 1.25fr;align-items:center;gap:8px;width:100%}
+.parentPlan,.yourPlan{background:#fff;border:2px solid #d6c4e3;border-radius:16px;padding:18px 12px;box-shadow:0 6px 18px #4d287512;min-height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.parentPlan h4,.yourPlan h4{margin:8px 0 4px;color:#60378a}.blueprintRoll{width:78px;height:100px;border:3px solid #76528f;border-radius:7px;background:repeating-linear-gradient(0deg,#f6f0fa 0,#f6f0fa 12px,#e6d9ef 13px);position:relative}
+.blueprintRoll:before,.blueprintRoll:after{content:"";position:absolute;left:-8px;width:90px;height:11px;border:3px solid #76528f;background:#e9def2;border-radius:10px}.blueprintRoll:before{top:-8px}.blueprintRoll:after{bottom:-8px}
+.flowArrow{font-size:2.4rem;color:#8255aa;font-weight:bold;text-align:center}.pairSet{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:12px auto;width:100%;max-width:230px}
+.chromPair{height:48px;display:flex;align-items:center;justify-content:center;gap:4px;background:#f7f2fa;border-radius:8px}.chr{display:block;width:8px;height:35px;border-radius:6px;background:#69418d;transform:rotate(8deg)}.chr.alt{background:#b18ac9;transform:rotate(-8deg)}
+.mixLabel{font-size:.78rem;font-weight:bold;color:#6b6070}.buildingMini{font-size:2.7rem;margin-top:4px}
+.inheritCaption{max-width:760px;margin:20px auto 0;background:#f4eef9;border-radius:12px;padding:15px 18px;text-align:left}.inheritCaption strong{color:#60378a}
+.recombine{margin-top:14px;display:flex;gap:10px;align-items:flex-start;text-align:left;background:#fff9ed;border-left:4px solid #c39a55;padding:13px;border-radius:8px}
+@media(max-width:800px){.inheritFlow{grid-template-columns:1fr 35px 1fr}.yourPlan{grid-column:1/4}.flowArrow.second{display:none}.parentPlan{min-height:185px}}
+@media(max-width:720px){.choices,.two,.terms{grid-template-columns:1fr}.plans,.rooms{grid-template-columns:repeat(2,1fr)}.recipes{grid-template-columns:1fr}}
+</style></head><body><header><div class="wrap"><b>EquiGen Health Foundation • Learning Hub</b><h1>Genetics Made Simple</h1><p>Choose an everyday analogy and explore the science one step at a time.</p></div></header>
+<section id="home"><div class="wrap"><h2>Choose how you'd like to explore genetics</h2><div class="choices">
+<div class="card choice" onclick="openM('recipe')"><div class="icon">🍲</div><h3>The Family Recipe Collection</h3><p>If you've ever followed—or changed—a recipe, start here.</p><button class="btn">Explore with recipes</button></div>
+<div class="card choice" onclick="openM('blue')"><div class="icon">🏢</div><h3>The Community Center Blueprint</h3><p>See how individual instructions come together to build something bigger.</p><button class="btn">Explore the blueprint</button></div></div></div></section>
+
+<section id="recipe" class="hidden"><div class="wrap"><button class="btn back" onclick="home()">← Choose another analogy</button><h2>🍲 The Family Recipe Collection</h2><div class="stage"><span class="tag">GENOME</span><h3>The entire family cookbook</h3><div class="visual"><div><div class="icon">📚</div><p>Your <b>genome</b> is your complete collection of genetic information.</p></div></div></div>
+<div class="stage"><span class="tag">CHROMOSOMES</span><h3>Organized sections of the collection</h3><div class="visual"><div class="recipes"><div class="recipe">🥬<br><b>Sides</b><br>Collard greens<br>Mac & cheese</div><div class="recipe">🍗<br><b>Main dishes</b><br>Baked chicken<br>Fish</div><div class="recipe">🥧<br><b>Desserts</b><br>Sweet potato pie<br>Peach cobbler</div></div></div><p>Chromosomes are large packages of DNA containing many genes—more like organized volumes than individual recipes.</p></div>
+<div class="stage"><span class="tag">GENE</span><h3>One recipe</h3><div class="visual"><div class="recipe"><b>Sweet Potato Pie</b><p>Ingredients + instructions</p></div></div><p>A gene is a specific stretch of DNA containing information a cell can use to make a functional product, often a protein.</p></div>
+<div class="stage"><span class="tag">VARIANT</span><h3>A difference in the recipe</h3><div class="two"><div class="card"><b>Version A</b><p>½ tsp cinnamon</p></div><div class="card"><b>Version B</b><p>1 tsp cinnamon</p></div></div><p>Both can make a good pie. Genetic variants are differences in DNA, and most genetic variation is not harmful.</p><div class="note">Some changes matter more. “2 cups of salt” instead of “2 teaspoons” could disrupt the result, just as certain pathogenic variants can disrupt biological function.</div></div>
+<div class="stage"><span class="tag">GENE EXPRESSION</span><h3>Owning the cookbook doesn't mean making every recipe</h3><div class="visual">📖 &nbsp;→&nbsp; 🍲</div><p>Most cells contain essentially the same genome, but different cells use different sets of genes.</p></div><button class="btn" onclick="science('recipe')">Connect the analogy to the science →</button></div></section>
+
+<section id="blue" class="hidden"><div class="wrap"><button class="btn back" onclick="home()">← Choose another analogy</button><h2>🏢 The Community Center Blueprint</h2><p>A building requires more than one drawing. Let's zoom from the entire community center down to one specific instruction.</p>
+<div class="stage"><span class="tag">INTERACTIVE ZOOM</span><h3 id="bt"></h3><div class="visual" id="bv"></div><p id="bx"></p><div class="controls"><button class="btn" onclick="next()">Zoom deeper →</button><button class="btn back" onclick="reset()">Start over</button></div></div>
+<div class="stage"><span class="tag">GENE EXPRESSION</span><h3>Same master plans. Different rooms use different instructions.</h3><div class="visual"><div class="rooms"><div class="r">🍳<br><b>Kitchen</b><br>Plumbing<br>Ventilation</div><div class="r">💻<br><b>Computer Lab</b><br>Data<br>Cooling</div><div class="r">🏀<br><b>Gym</b><br>Structure<br>Lighting</div><div class="r">🩺<br><b>Health Room</b><br>Storage<br>Power</div><div class="r">🗂️<br><b>Office</b><br>Data<br>HVAC</div></div></div><p>A heart cell and a skin cell contain essentially the same genome, but they use different sets of genetic instructions.</p></div>
+<div class="stage"><span class="tag">INHERITANCE</span><h3>Building Your Genetic Plan</h3>
+<div class="visual">
+<div class="inheritVisual">
+  <div class="inheritFlow">
+    <div class="parentPlan">
+      <div class="blueprintRoll"></div>
+      <h4>Biological Parent 1</h4>
+      <div class="mixLabel">23 chromosomes contributed</div>
+    </div>
+    <div class="flowArrow">→</div>
+    <div class="parentPlan">
+      <div class="blueprintRoll"></div>
+      <h4>Biological Parent 2</h4>
+      <div class="mixLabel">23 chromosomes contributed</div>
+    </div>
+    <div class="flowArrow second">→</div>
+    <div class="yourPlan">
+      <span class="tag">YOUR GENETIC PLAN</span>
+      <div class="pairSet" aria-label="Illustration of chromosome pairs">
+        <div class="chromPair"><i class="chr"></i><i class="chr alt"></i></div>
+        <div class="chromPair"><i class="chr"></i><i class="chr alt"></i></div>
+        <div class="chromPair"><i class="chr"></i><i class="chr alt"></i></div>
+        <div class="chromPair"><i class="chr"></i><i class="chr alt"></i></div>
+        <div class="chromPair"><i class="chr"></i><i class="chr alt"></i></div>
+        <div class="chromPair"><i class="chr"></i><i class="chr alt"></i></div>
+        <div class="chromPair"><i class="chr"></i><i class="chr alt"></i></div>
+        <div class="chromPair"><i class="chr"></i><i class="chr alt"></i></div>
+      </div>
+      <div class="mixLabel">46 chromosomes • 23 pairs</div>
+      <div class="buildingMini">🏢</div>
+    </div>
+  </div>
+  <div class="inheritCaption">
+    <strong>One chromosome in each pair comes from each biological parent.</strong>
+    Together, the 23 pairs form your unique combination of genetic information.
+    <div class="recombine"><span style="font-size:1.6rem">🔀</span><div><strong>Not simply a 50/50 copy of traits.</strong><br>
+    You inherit roughly half of your nuclear DNA from each biological parent, but before chromosomes are passed on, <b>recombination</b> can exchange DNA between paired chromosomes. This reshuffling helps make each person's genetic combination unique.</div></div>
+  </div>
+</div>
+</div>
+<p>Think of each biological parent contributing one version of the plans for each chromosome pair. Your cells bring those inherited sets together into one genome.</p></div><button class="btn" onclick="science('blue')">Connect the analogy to the science →</button></div></section>
+
+<section id="science" class="hidden"><div class="wrap"><h2>Different Analogy. Same Biology.</h2><div class="terms">
+<div class="term"><b>Genome</b><p>Your complete set of genetic information.</p></div><div class="term"><b>DNA</b><p>The molecule that stores genetic information using A, T, C and G.</p></div><div class="term"><b>Chromosome</b><p>A packaged structure of DNA and proteins containing many genes.</p></div><div class="term"><b>Gene</b><p>A stretch of DNA containing information used to make a functional product.</p></div><div class="term"><b>Genetic variant</b><p>A difference in DNA sequence. Most variants are not disease-causing.</p></div><div class="term"><b>Pathogenic variant</b><p>A variant with evidence showing it contributes to disease.</p></div><div class="term"><b>VUS</b><p>A variant whose relationship to disease is not yet clear.</p></div><div class="term"><b>Gene expression</b><p>The process through which genetic information is used to produce a functional product.</p></div></div>
+<div class="note"><b>Important:</b> Having a genetic variant is not automatically the same as having a genetic disorder. Meaning depends on the variant, gene, evidence, inheritance and biological context.</div>
+<div class="two"><div class="card"><h3>🍲 Recipe</h3><p>Genome = entire collection<br>Chromosome = organized volume<br>Gene = recipe<br>Variant = recipe difference<br>Expression = recipe being used</p></div><div class="card"><h3>🏢 Blueprint</h3><p>Genome = complete plan set<br>Chromosome = organized plan set<br>Gene = functional instruction<br>Variant = specification difference<br>Expression = instructions being used</p></div></div><button class="btn" onclick="home()">Explore another pathway</button></div></section>
+
+<footer><div class="wrap"><b>EquiGen Health Foundation</b><p>This module is for education only and is not medical advice. Analogies simplify biology; real genetic mechanisms are more complex.</p></div></footer>
+<script>
+let step=0;const steps=[
+["The completed community center","<div><div class='icon'>🏢</div><b>EquiGen Community Center</b><p>The finished structure results from thousands of coordinated instructions.</p></div>","Your body is the functioning structure. Let's move backward into the information used to build it."],
+["The complete plan set = the genome","<div class='plans'><div class='sheet'><b>A-101</b>Architectural<br>Floor Plan</div><div class='sheet'><b>S-101</b>Structural</div><div class='sheet'><b>E-201</b>Electrical</div><div class='sheet'><b>P-301</b>Plumbing</div><div class='sheet'><b>M-201</b>HVAC</div></div>","A real building isn't built from one drawing. Your genome is likewise the complete set of genetic information."],
+["An organized plan = moving toward a chromosome","<div class='floor'><div class='room'>KITCHEN</div><div class='room'>COMPUTER LAB</div><div class='room'>HEALTH ROOM</div><div class='room'>OFFICE</div><div class='room'>GYM</div></div>","Chromosomes are large organized packages of DNA containing many genes. The sheet analogy helps distinguish a complete plan collection from a smaller organized portion."],
+["A specific functional instruction = a gene","<div class='spec'><b>DETAIL D-14 • ACCESSIBLE DOOR</b><div class='line'>Opening: 36 inches</div><div class='line'>Material: solid core</div><div class='line'>Hardware: lever handle</div><div class='line'>Swing: outward</div></div>","A gene isn't the entire blueprint. It is a specific stretch of DNA containing information used to make a functional product, often a protein."],
+["A variant = a difference in an instruction","<div class='two' style='width:100%'><div class='spec'><b>VERSION A</b><div class='line'>Opening: 36 inches</div></div><div class='spec'><b>VERSION B</b><div class='line change'>Opening: 34 inches</div></div></div>","A difference does not automatically mean a problem. Humans naturally carry millions of DNA variants, and most are not disease-causing."],
+["Some changes can affect function","<div><div style='font-size:3rem'>🚪 36” &nbsp; ♿ &nbsp; 🚪 16”</div><p>A very large change in a critical specification can interfere with intended function.</p></div>","Certain pathogenic variants can disrupt biological function. A real variant's effect depends on scientific evidence and biological context."]
+];function render(){bt.innerHTML=steps[step][0];bv.innerHTML=steps[step][1];bx.innerHTML=steps[step][2]}function next(){step=(step+1)%steps.length;render()}function reset(){step=0;render()}function openM(x){homeEl=document.getElementById('home');homeEl.classList.add('hidden');document.getElementById(x).classList.remove('hidden');scrollTo(0,0)}function home(){['recipe','blue','science'].forEach(x=>document.getElementById(x).classList.add('hidden'));document.getElementById('home').classList.remove('hidden');reset();scrollTo(0,0)}function science(x){document.getElementById(x).classList.add('hidden');document.getElementById('science').classList.remove('hidden');scrollTo(0,0)}render();
+</script></body></html>
